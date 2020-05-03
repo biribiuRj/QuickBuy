@@ -35,7 +35,7 @@ namespace QuickBuy.Web
                                                             .UseMySql(connectionString, m => m.MigrationsAssembly("QuickBuy.Repositorio")));
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
             //services.AddScoped<IPedidosRepositorio, PedidoRepositorio>();
-            //services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 
             // In production, the Angular files will be served from this directory
