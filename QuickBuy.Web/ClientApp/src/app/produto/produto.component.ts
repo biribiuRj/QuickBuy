@@ -20,7 +20,7 @@ export class ProdutoComponent implements OnInit {
     this.produto = new Produto();
   }
 
-  public cadastrar() {
+  public cadastrar() {/*
     this.produtoServico.cadastrar(this.produto)
       .subscribe(
         produtoJson => {
@@ -29,7 +29,7 @@ export class ProdutoComponent implements OnInit {
         e => {
           console.log(e.error)
         }
-      );
+      );*/
   }
 
 }

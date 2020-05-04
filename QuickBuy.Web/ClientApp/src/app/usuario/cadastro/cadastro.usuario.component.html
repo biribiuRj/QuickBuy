@@ -71,6 +71,9 @@
     <div class="alert alert-danger" *ngIf="mensagem">
       <h6>{{mensagem}}</h6>
     </div>
+    <div class="alert alert-success" *ngIf="usuarioCadsatrado">
+      Usuário Cadastrado com Sucesso!<a class="alert-link" [routerLink]='["/entrar"]' > Clique aqui </a> para entrar no sistema com sua conta.
+    </div>
   </form>
   <img src="..\..\..\assets\img\quickbuylogo.jpg" [title]="titulo" />
 </div>
