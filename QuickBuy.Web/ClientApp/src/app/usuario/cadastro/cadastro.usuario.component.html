@@ -62,17 +62,17 @@
       </div>
     </div>
 
-    <button class="btn btn-primary btn-block" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
+    <button class="btn btn-primary btn-block mb-2" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner">  </span>
       Salvar
 
     </button>
-    <a [routerLink]='["/entrar"]' class="btn btn-light">Voltar</a>
-    <div class="alert alert-danger" *ngIf="mensagem">
+    <a [routerLink]='["/entrar"]' class="btn btn-light mb-2">Voltar</a>
+    <div class="alert alert-danger mb-2" *ngIf="mensagem">
       <h6>{{mensagem}}</h6>
     </div>
-    <div class="alert alert-success" *ngIf="usuarioCadsatrado">
-      Usuário Cadastrado com Sucesso!<a class="alert-link" [routerLink]='["/entrar"]' > Clique aqui </a> para entrar no sistema com sua conta.
+    <div class="alert alert-success" *ngIf="usuarioCadastrado">
+      Usuário Cadastrado com Sucesso!<a class="alert-link" [routerLink]='["/entrar"]' >Clique aqui</a> para entrar no sistema com sua conta.
     </div>
   </form>
   <img src="..\..\..\assets\img\quickbuylogo.jpg" [title]="titulo" />
