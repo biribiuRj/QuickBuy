@@ -59,10 +59,16 @@ namespace QuickBuy.Web.Controllers
                 var formFile = _httpContextAccessor.HttpContext.Request.Form.Files["arquivoEnviado"];
                 var nomeArquivo = formFile.FileName;
                 var extensao = nomeArquivo.Split(".").Last();
-                var arrayNomeCompacto = Path.GetFileNameWithoutExtension(nomeArquivo).
+                string novoNomeArquivo = GerarNovoNomeArquivo(nomeArquivo, extensao);
+                var pastaArquivos = _hostingEnvironment.WebRootPath + "\\arquivos\\";
+                var nomeCompleto = pastaArquivos + novoNomeArquivo;
 
+                using (var streamArquivo = new FileStream(nomeCompleto, FileMode.Create))
+                {
+                    formFile.CopyTo(streamArquivo);
+                }
 
-                return ;
+                return Json(novoNomeArquivo);
             }
             catch (Exception ex)
             {
@@ -70,7 +76,13 @@ namespace QuickBuy.Web.Controllers
             }
         }
 
-
+        private static string GerarNovoNomeArquivo(string nomeArquivo, string extensao)
+        {
+            var arrayNomeCompacto = Path.GetFileNameWithoutExtension(nomeArquivo).Take(10).ToArray();
+            var novoNomeArquivo = new string(arrayNomeCompacto).Replace(" ", "-");
+            novoNomeArquivo = $"{novoNomeArquivo}_{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Hour}{DateTime.Now.Minute}{DateTime.Now.Second}.{extensao}";
+            return novoNomeArquivo;
+        }
     }
 }
 
