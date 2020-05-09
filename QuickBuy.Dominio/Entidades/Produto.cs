@@ -12,6 +12,8 @@
         {
             if (string.IsNullOrEmpty(Nome))
                 AdicionarCritica("Nome do produto não foi informado");
+            if (string.IsNullOrEmpty(Descricao))
+                AdicionarCritica("Descrição do produto não foi informada");
         }
     }
 }
