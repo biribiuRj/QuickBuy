@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace QuickBuy.Dominio.Entidades
+﻿namespace QuickBuy.Dominio.Entidades
 
 {
     public class Produto : Entidade
