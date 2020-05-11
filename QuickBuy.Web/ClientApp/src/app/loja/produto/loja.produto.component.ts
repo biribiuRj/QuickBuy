@@ -29,4 +29,9 @@ export class LojaProdutoComponent implements OnInit{
         console.log(e.error);
       })
   }
+
+  public comprar() {
+    this.router.navigate(["/loja-efetivar"]);
+  }
+
 }
