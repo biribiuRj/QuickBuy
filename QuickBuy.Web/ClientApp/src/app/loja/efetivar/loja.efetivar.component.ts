@@ -4,15 +4,15 @@ import { Produto } from "../../modelo/Produto";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: "app-loja",
-  templateUrl: "./loja.pesquisa.component.html",
-  styleUrls: ["./loja.pesquisa.component.css"]
+  selector: "loja-efetivar",
+  templateUrl: "./loja.efetivar.component.html",
+  styleUrls: ["./loja.efetivar.component.css"]
 })
 
-export class LojaPesquisaComponent implements OnInit{
-  public produtos : Produto[];
+export class LojaEfetivarComponent implements OnInit {
+  public produtos: Produto[];
   ngOnInit(): void {
-        
+
   }
   constructor(private produtoServico: ProdutoServico, private router: Router) {
     this.produtoServico.obterTodosProdutos().subscribe(
@@ -23,10 +23,4 @@ export class LojaPesquisaComponent implements OnInit{
         console.log(e.error);
       })
   }
-
-  public abrirProduto(produto: Produto) {
-    sessionStorage.setItem('produtoDetalhe', JSON.stringify(produto));
-    this.router.navigate(['/loja-produto']);
-  }
-
 }

@@ -11,7 +11,7 @@
       </div>
 </div>
 <label for="inputDescricao" class="sr-only">Descrição</label>
-<input type="text" id="inputDescricao" name="descricaoProduto" placeholder="Descricão do Produto" class="form-control mb-2 col-md-6"
+<input type="text" minlength="30" id="inputDescricao" name="descricaoProduto" placeholder="Descricão do Produto" class="form-control mb-2 col-md-6"
        [ngClass]="{
            'is-invalid':descricao.invalid && (descricao.dirty || descricao.touched),
            'is-valid':descricao.valid && (descricao.dirty || descricao.touched)
@@ -20,6 +20,9 @@
 <div class="invalid-feedback mb-2" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)">
   <div *ngIf="descricao.errors.required">
     Digite a descrição do Produto
+  </div>
+  <div *ngIf="descricao.errors.minlength">
+    A Descrição do produto deverá ser maior que 30 dígitos!
   </div>
 </div>
 <input type="number" id="inputPreco" name="precoProduto" class="form-control mb-2 col-md-2" placeholder="Preço do Produto"
