@@ -1,10 +1,14 @@
 {
-  "ConnectionStrings": {
+ /* "ConnectionStrings": {
     "SqlServerConnection": "",
     "QuickBuyDB": "server=remotemysql.com; uid=Fa67QGdgYp ;pwd=Hl748CwtUK ;database=Fa67QGdgYp "
 
-  }
+  },*/
+  "ConnectionStrings": {
+    "SqlServerConnection": "",
+    "QuickBuyDB": "server=localhost; uid=root ;pwd=1234567 ;database=quickbuydb "
 
+  }
 }
 
 
