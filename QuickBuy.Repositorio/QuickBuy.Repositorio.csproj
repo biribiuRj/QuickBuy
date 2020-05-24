@@ -13,4 +13,7 @@
     <ProjectReference Include="..\QuickBuy.Dominio\QuickBuy.Dominio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
 </Project>
