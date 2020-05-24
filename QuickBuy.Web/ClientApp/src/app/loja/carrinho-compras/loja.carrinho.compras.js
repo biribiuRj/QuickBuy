@@ -1,0 +1,31 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var LojaCarrinhoCompras = /** @class */ (function () {
+    function LojaCarrinhoCompras() {
+        this.produtos = [];
+    }
+    LojaCarrinhoCompras.prototype.adicionar = function (produto) {
+        var produtoLocaStorage = localStorage.getItem("produtoLocaStorage");
+        if (!produtoLocaStorage) {
+            //se não existir nada no produtoLocaStorage
+            this.produtos.push(produto);
+        }
+        else {
+            //se já existir pelo menos um item armazenado na sessão
+            this.produtos = JSON.parse(produtoLocaStorage);
+            this.produtos.push(produto);
+        }
+        localStorage.setItem("produtoLocaStorage", JSON.stringify(this.produtos));
+    };
+    LojaCarrinhoCompras.prototype.obterProdutos = function () {
+        var produtoLocaStorage = localStorage.getItem("produtoLocaStorage");
+        if (produtoLocaStorage) {
+            return JSON.parse(produtoLocaStorage);
+        }
+    };
+    LojaCarrinhoCompras.prototype.removerProduto = function (produto) {
+    };
+    return LojaCarrinhoCompras;
+}());
+exports.LojaCarrinhoCompras = LojaCarrinhoCompras;
+//# sourceMappingURL=loja.carrinho.compras.js.map

@@ -29,6 +29,9 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
+    <None Remove="ClientApp\src\app\loja\carrinho-compras\loja.carrinho.compras.css" />
+    <None Remove="ClientApp\src\app\loja\carrinho-compras\loja.carrinho.compras.html" />
+    <None Remove="ClientApp\src\app\loja\carrinho-compras\loja.carrinho.compras.ts" />
     <None Remove="ClientApp\src\app\loja\efetivar\loja.efetivar.component.css" />
     <None Remove="ClientApp\src\app\loja\efetivar\loja.efetivar.component.html" />
     <None Remove="ClientApp\src\app\loja\efetivar\loja.efetivar.component.ts" />
@@ -56,6 +59,13 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\loja\carrinho-compras\loja.carrinho.compras.css">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\loja\carrinho-compras\loja.carrinho.compras.html">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\loja\carrinho-compras\loja.carrinho.compras.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\loja\efetivar\loja.efetivar.component.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -142,7 +152,7 @@
     <ItemGroup>
       <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
       <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
-      <ResolvedFileToPublish Include="@(DistFiles-&gt;'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
         <RelativePath>%(DistFiles.Identity)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </ResolvedFileToPublish>
