@@ -31,6 +31,9 @@ var LojaCarrinhoCompras = /** @class */ (function () {
             localStorage.setItem("produtoLocaStorage", JSON.stringify(this.produtos));
         }
     };
+    LojaCarrinhoCompras.prototype.atualizar = function (produto) {
+        localStorage.setItem("produtoLocaStorage", JSON.stringify(produto));
+    };
     return LojaCarrinhoCompras;
 }());
 exports.LojaCarrinhoCompras = LojaCarrinhoCompras;
