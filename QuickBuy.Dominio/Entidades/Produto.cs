@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
 
 namespace QuickBuy.Dominio.Entidades
 
@@ -7,10 +7,8 @@ namespace QuickBuy.Dominio.Entidades
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        [MinLength(10, ErrorMessage = "Name cannot be less than 10")]
-        [MaxLength(50, ErrorMessage = "Name cannot be greater than 50")]
         public string Descricao { get; set; }
-        [Required]
+
         public decimal Preco { get; set; }
         public string NomeArquivo { get; set; }
 

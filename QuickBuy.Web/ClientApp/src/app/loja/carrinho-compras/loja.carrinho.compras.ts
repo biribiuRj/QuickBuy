@@ -24,7 +24,11 @@ export class LojaCarrinhoCompras {
   }
 
   public removerProduto(produto: Produto) {
-
+    var produtoLocaStorage = localStorage.getItem("produtoLocaStorage");
+    if (produtoLocaStorage) {
+      this.produtos = JSON.parse(produtoLocaStorage);
+      this.produtos = this.produtos.filter(p => p.id != produto.id);
+      localStorage.setItem("produtoLocaStorage", JSON.stringify(this.produtos));
+    }
   }
-
 }

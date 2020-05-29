@@ -4,7 +4,7 @@ export class Produto {
   descricao: string;
   preco: number;
   nomeArquivo: string;
-  //precoOriginal: number;
-  //quantidade: number;
+  precoOriginal: number;
+  quantidade: number;
 
 }
