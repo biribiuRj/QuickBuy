@@ -5,6 +5,7 @@ import { Router } from "@angular/router"
 import { Pedido } from "../../modelo/pedido";
 import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
 import { ItemPedido } from "../../modelo/itemPedido";
+import { PedidoServico } from "../../servicos/pedido/pedido.servico";
 
 @Component({
   selector: "loja-efetivar",
@@ -16,7 +17,7 @@ export class LojaEfetivarComponent implements OnInit {
   public carrinhoCompras: LojaCarrinhoCompras;
   public total: number;
 
-  constructor(private usuarioServico: UsuarioServico) { }
+  constructor(private usuarioServico: UsuarioServico, private pedidoServico: PedidoServico, private router: Router) { }
 
   ngOnInit(): void {
     this.carrinhoCompras = new LojaCarrinhoCompras();
@@ -46,8 +47,17 @@ export class LojaEfetivarComponent implements OnInit {
     this.total = this.produtos.reduce((acc, produto) => acc + produto.preco, 0);
   }
   public efetivarCompra() {
-    let pedido = this.criarPedido();
-
+    this.pedidoServico.efetivarCompra(this.criarPedido()).subscribe(
+      pedidoId => {
+        console.log(pedidoId);
+        sessionStorage.setItem("pedidoId", pedidoId.toString());
+        this.produtos = [];
+        this.carrinhoCompras.limparCarrinhoCompras();
+        this.router.navigate(["/compra-realizada-sucesso"]);
+      },
+      e => {
+        console.log(e.error);
+      });
   }
   public criarPedido(): Pedido {
     let pedido = new Pedido();
